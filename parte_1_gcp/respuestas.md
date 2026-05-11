@@ -17,9 +17,12 @@ El área de datos del CMS tiene hoy varios pipelines que corren localmente en un
 
 ## Pregunta 2
 
-Tienes tres bases de datos que se actualizan con frecuencias distintas — una mensual, una trimestral y una anual. Las tres deben integrarse en una base maestra. Un equipo de analistas necesita consultarlas frecuentemente y otra persona externa necesita descargar versiones completas periódicamente.
+El área de datos del CMS tiene tres bases de datos que deben estar disponibles en GCP. Los usuarios que acceden son:
+  - Analistas internos del CMS (2 personas): consultan los datos frecuentemente con filtros, sin necesidad de descargar archivos completos
+  - Ingeniero de datos (1 persona): lee y escribe en todas las bases, incluyendo cargar nuevas versiones
+  - Organismo público externo (1 entidad): descarga versiones completas periódicamente, pero no debe acceder a todas las bases
 
-¿Cómo organizarías el almacenamiento y acceso en GCP para este escenario?
+¿Cómo organizarías el almacenamiento y los permisos en GCP para este escenario?
 
 **Respuesta:**
 
