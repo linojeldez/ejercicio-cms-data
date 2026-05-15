@@ -5,7 +5,7 @@
 
 Bienvenido/a al ejercicio técnico del proceso de selección del CMS. Este ejercicio tiene dos partes y está diseñado para que puedas mostrar tu forma de trabajar con datos y tu criterio técnico.
 
-**Tiempo de entrega:** 22 de abril a las 16:00 horas.
+**Plazo:** 22 de abril a las 16:00 horas.
 
 **Cómo entregar:**
 1. Haz un fork de este repositorio a tu cuenta de GitHub
