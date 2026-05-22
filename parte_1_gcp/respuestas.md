@@ -79,11 +79,11 @@ Proyecto GCP: cms-datos
 
 ```
 Cloud Storage
-├── Bucket_CMS_Interno
+├── CS_CMS_Interno
 │   ├── base_bd_a.csv
 │   ├── base_bd_b.csv
 │   └── base_bd_c.csv
-└── CMS_Externo
+└── CS_CMS_Externo
     └── base_bd_a.csv
 ```
 
@@ -93,12 +93,14 @@ Cloud Storage
 |-------|----------|---------|---------|
 | Analistas CMS | BigQuery | User + Data Viewer | Dataset_CMS |
 | Ingeniero de datos | BigQuery | Editor | Dataset_CMS |
-| Ingeniero de datos | GCS | Editor | Dataset_CMS_Interno + Dataset_CMS_Externo |
-| Organización externa | GCS | Data Viewer | Dataset_CMS_Externo  |
+| Ingeniero de datos | GCS | Editor | CS_CMS_Interno + CS_CMS_Externo |
+| Organización externa | GCS | Data Viewer | CS_CMS_Externo  |
 
 ### Justificación
 
 Dos patrones de acceso, dos servicios: BigQuery para consultas con filtros, GCS para descargas completas. La organización externa nunca toca BigQuery, así que es estructuralmente imposible que alcance datos internos. Los permisos van por rol con privilegio mínimo: cada actor recibe solo lo que su función exige. El esquema es escalable, sumar un usuario es agregarlo a un grupo y autorizar una base al externo es copiar un archivo.
+
+
 ---
 
 *Centro de Movilidad Sostenible — cmsostenible.org*
