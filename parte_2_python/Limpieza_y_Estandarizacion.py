@@ -1,7 +1,7 @@
 # Limpieza y Estandarizacion de Datos
+
 # Parte 2 - Tarea 2
-# ============================================================
-#
+
 # Lee el archivo de la carpeta datos/ del repositorio, le aplica
 # 6 mejoras de calidad y guarda la base limpia como base_limpia.csv.
 #

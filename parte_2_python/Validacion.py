@@ -1,10 +1,8 @@
 # Validacion Post-Limpieza 
 
 # Parte 2 - Tarea 3
-# ============================================================
-#
-# Uso:  python validacion.py
-#
+
+
 # Toma la base limpia (base_limpia.csv, generada por Limpieza_y_Estandarizacion.py) y verifica que la limpieza realmente funciono. Si algun chequeo
 # no se cumple, el script termina con codigo de error distinto de cero, para que el orquestador detenga el pipeline.
 
