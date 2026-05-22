@@ -57,28 +57,35 @@ El área de datos del CMS tiene tres bases de datos que deben estar disponibles 
 
 ### Estrategia de almacenamiento: dos capas
 
+
 | Capa | Servicio | Quiénes tienen acceso | Propósito |
 |------|----------|------------------------|-----------|
-| Consulta interactiva | *BigQuery* | Analistas (solo lectura) e ingeniero de datos (lectura y escritura) | Analistas hacen queries con filtros; pagan por datos escaneados, no por almacenamiento permanente |
-
-| Descarga de versiones completas | *Cloud Storage (GCS)* | Organización externa (solo lectura, solo sobre las bases autorizadas) e ingeniero de datos (escritura y gestión) | Archivos CSV/Parquet versionados para descarga por externos |
+| Consulta interactiva | *BigQuery* | Analistas (solo lectura) e ingeniero de datos (lectura y escritura) | Analistas hacen queries con filtros|
+| Descarga de versiones completas | *Cloud Storage (GCS)* | Organización externa (solo lectura, solo sobre las bases autorizadas) e ingeniero de datos (escritura y gestión) | Archivos CSV versionados para descarga por externos |
 
 Separar las capas permite que el externo descargue desde GCS sin que toque BigQuery, y que los analistas puedan hacer consultas con filtros.
 
 ### Organización en BigQuery
--- Dataset_CMS:   
-│   ── Tabla_BD_a
-│   ── Tabla_BD_b
-│   ── Tabla_BD_c
+
+```
+Proyecto GCP: cms-datos
+└── Dataset_CMS
+    ├── Tabla_BD_a
+    ├── Tabla_BD_b
+    └── Tabla_BD_c
+```
 
 ### Organización en Cloud Storage
 
--- Dataset_CMS_Interno:   
-│   ── Tabla_BD_a
-│   ── Tabla_BD_b
-│   ── Tabla_BD_c
--- Dataset_CMS_Externo:   
-│   ── Tabla_BD_a
+```
+Cloud Storage
+├── Bucket_CMS_Interno
+│   ├── base_bd_a.csv
+│   ├── base_bd_b.csv
+│   └── base_bd_c.csv
+└── CMS_Externo
+    └── base_bd_a.csv
+```
 
 ### Permisos por actor (IAM)
 
